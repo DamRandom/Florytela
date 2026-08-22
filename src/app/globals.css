@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta oficial Florytela */
+  --color-burgundy: #550B14;
+  --color-burgundy-deep: #3E0810;
+  --color-ivory: #F8F8F7;
+  --color-beige: #CBC0B2;
+  --color-beige-light: #E8E2DB;
+  --color-taupe: #7E6961;
+  --color-charcoal: #211C1D;
+
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+:root {
+  --background: #F8F8F7;
+  --foreground: #211C1D;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #550B14;
+  color: #F8F8F7;
+}
+
+/* Scrollbar editorial */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E8E2DB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBC0B2;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #550B14;
+}
+
+/* Tipografía helper */
+.font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.font-body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Líneas editoriales */
+.editorial-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #CBC0B2, transparent);
+}
+
+.editorial-line-accent {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #7E6961, transparent);
+}
