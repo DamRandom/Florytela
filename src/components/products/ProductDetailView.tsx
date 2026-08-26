@@ -59,7 +59,7 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
           <div className="flex flex-col items-center gap-1.5">
             <Truck className="w-4 h-4 text-burgundy" />
             <span className="text-[10px] uppercase tracking-wider text-charcoal font-medium">
-              Envío Seguro MX
+              Envío Seguro Perú
             </span>
           </div>
         </div>
@@ -95,7 +95,7 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
             <span className="font-serif text-2xl sm:text-3xl font-medium text-burgundy">
               {formatPrice(calculatedPrice)}
             </span>
-            <span className="text-xs text-taupe">MXN • Impuestos incluidos</span>
+            <span className="text-xs text-taupe">PEN • Impuestos incluidos</span>
           </div>
 
           {/* Description */}
@@ -264,7 +264,7 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
                 <ul className="space-y-2">
                   {product.materials.map((m, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0" />
                       <span>{m}</span>
                     </li>
                   ))}
@@ -287,7 +287,7 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
                 <ul className="space-y-2">
                   {product.idealFor.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-gold mt-0.5 shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -298,7 +298,7 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
                 <ul className="space-y-2">
                   {product.careGuide.map((cg, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-burgundy mt-1.5 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-burgundy mt-1.5 shrink-0" />
                       <span>{cg}</span>
                     </li>
                   ))}

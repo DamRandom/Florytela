@@ -31,7 +31,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
       {/* Image Showcase */}
       <Link
         href={`/catalogo/${product.slug}`}
-        className="relative aspect-[4/5] w-full overflow-hidden bg-beige-light block"
+        className="relative aspect-4/5 w-full overflow-hidden bg-beige-light block"
       >
         <Image
           src={displayImage}

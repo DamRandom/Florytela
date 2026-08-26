@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     images: [
       {
-        url: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200&auto=format&fit=crop",
+        url: "/images/hero-florytela.jpg",
         width: 1200,
         height: 630,
         alt: SITE_CONFIG.name,
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_CONFIG.name} — Mandiles de Autor`,
     description: SITE_CONFIG.description,
-    images: ["https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/images/hero-florytela.jpg"],
   },
   robots: {
     index: true,

@@ -144,7 +144,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 top-[60px] z-30 bg-ivory/98 backdrop-blur-xl border-t border-beige-light lg:hidden flex flex-col justify-between p-6 sm:p-8"
+            className="fixed inset-0 top-15 z-30 bg-ivory/98 backdrop-blur-xl border-t border-beige-light lg:hidden flex flex-col justify-between p-6 sm:p-8"
           >
             <div className="flex flex-col gap-8 pt-2">
               {/* Las tres líneas */}

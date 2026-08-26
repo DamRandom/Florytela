@@ -25,7 +25,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
   return (
     <div className="flex flex-col gap-4">
       {/* Main Image Showcase */}
-      <div className="relative aspect-[4/5] w-full bg-cream overflow-hidden border border-beige group">
+      <div className="relative aspect-4/5 w-full bg-cream overflow-hidden border border-beige group">
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedIndex}

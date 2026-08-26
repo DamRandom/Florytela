@@ -10,17 +10,13 @@ import { CTAButton } from "../ui/CTAButton";
 export function Hero() {
   return (
     <section className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center pt-24 sm:pt-28 pb-16 overflow-hidden bg-ivory">
-
       {/* Textura de fondo sutil */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.015] bg-[radial-gradient(#550B14_1px,transparent_1px)] [background-size:32px_32px]" />
+      <div className="absolute inset-0 pointer-events-none opacity-[0.015] bg-[radial-gradient(#550B14_1px,transparent_1px)] bg-size-[32px_32px]" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full relative z-10">
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
           {/* LEFT — Brand Lockup & Editorial Actions */}
           <div className="lg:col-span-7 flex flex-col items-start">
-
             {/* Subtle origin tag */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -95,35 +91,40 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="mt-14 sm:mt-16 flex items-center gap-3 sm:gap-4 text-[9px] sm:text-[10px] uppercase tracking-[0.24em] text-taupe/70 pl-1"
             >
-              <Link href="/linea/fast" className="hover:text-burgundy transition-colors">
+              <Link
+                href="/linea/fast"
+                className="hover:text-burgundy transition-colors"
+              >
                 01 Fast
               </Link>
               <span className="w-1 h-1 rounded-full bg-beige" />
-              <Link href="/linea/personalizacion" className="hover:text-burgundy transition-colors font-medium text-taupe">
+              <Link
+                href="/linea/personalizacion"
+                className="hover:text-burgundy transition-colors font-medium text-taupe"
+              >
                 02 Personalización
               </Link>
               <span className="w-1 h-1 rounded-full bg-beige" />
-              <Link href="/linea/deluxe" className="hover:text-burgundy transition-colors">
+              <Link
+                href="/linea/deluxe"
+                className="hover:text-burgundy transition-colors"
+              >
                 03 Deluxe
               </Link>
             </motion.div>
-
           </div>
 
           {/* RIGHT — Editorial Imagery */}
           <div className="lg:col-span-5 relative">
-
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.9, delay: 0.2 }}
               className="relative mx-auto max-w-md lg:max-w-none"
             >
-
-              <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full bg-beige-light border border-beige/60 overflow-hidden shadow-2xl">
-
+              <div className="relative aspect-3/4 sm:aspect-4/5 w-full bg-beige-light border border-beige/60 overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200&auto=format&fit=crop"
+                  src="/images/hero-florytela.jpg"
                   alt="Mandil Florytela by Adriana Martínez"
                   fill
                   priority
@@ -131,7 +132,7 @@ export function Hero() {
                   className="object-cover object-center transform hover:scale-105 transition-transform duration-1000 ease-out"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/35 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-charcoal/35 via-transparent to-transparent" />
 
                 {/* Minimalist Floating Caption */}
                 <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
@@ -152,17 +153,11 @@ export function Hero() {
                     <ArrowUpRight className="w-4 h-4" />
                   </Link>
                 </div>
-
               </div>
-
             </motion.div>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

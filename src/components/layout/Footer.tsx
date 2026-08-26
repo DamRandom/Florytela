@@ -102,10 +102,10 @@ export function Footer() {
                     className="group flex flex-col gap-0.5"
                   >
                     <span className="text-xs text-charcoal/80 hover:text-burgundy uppercase tracking-wider font-medium transition-colors">
-                      {line.number} — {line.name}
+                      {line.name}
                     </span>
                     <span className="text-[11px] text-taupe group-hover:text-charcoal/60 transition-colors font-light">
-                      {line.tagline}
+                      {line.subtitle || line.tagline}
                     </span>
                   </Link>
                 </li>
@@ -141,7 +141,7 @@ export function Footer() {
 
             <div className="mt-6 flex flex-col gap-1.5 text-xs text-taupe">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-burgundy flex-shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-burgundy shrink-0" />
                 <span>{SITE_CONFIG.location}</span>
               </div>
               <p className="pl-5 text-[11px] text-charcoal/60">{SITE_CONFIG.workshopHours}</p>
@@ -159,7 +159,7 @@ export function Footer() {
 
             {subscribed ? (
               <div className="bg-ivory border border-beige p-3 text-xs text-charcoal flex items-center gap-2">
-                <Check className="w-4 h-4 text-burgundy flex-shrink-0" />
+                <Check className="w-4 h-4 text-burgundy shrink-0" />
                 <span>¡Gracias! Te avisamos cuando haya novedades.</span>
               </div>
             ) : (
