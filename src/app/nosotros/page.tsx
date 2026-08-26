@@ -64,7 +64,7 @@ export default function NosotrosPage() {
           <div className="lg:col-span-6 relative">
             <div className="relative aspect-[4/5] w-full bg-beige-light border border-beige shadow-xl overflow-hidden">
               <Image
-                src="/images/nosotros/adriana-martinez.jpg"
+                src="/images/hero-florytela.png"
                 alt="Adriana Martínez en el taller de Florytela"
                 fill
                 priority

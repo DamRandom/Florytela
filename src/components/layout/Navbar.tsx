@@ -113,15 +113,13 @@ export function Navbar() {
 
             {/* CTA desktop */}
             <div className="hidden sm:flex items-center gap-3">
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-burgundy hover:bg-burgundy-deep text-ivory px-4 py-2.5 text-xs uppercase tracking-[0.12em] font-medium transition-all duration-300"
+              <Link
+                href="/catalogo"
+                className="inline-flex items-center gap-2 bg-burgundy hover:bg-burgundy-deep text-ivory px-4 py-2.5 text-xs uppercase tracking-[0.12em] font-medium transition-all duration-300 shadow-xs"
               >
-                <span>Hacer pedido</span>
+                <span>Ver catálogo</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -213,15 +211,14 @@ export function Navbar() {
             </div>
 
             <div className="flex flex-col gap-4 pt-6 border-t border-beige-light">
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/catalogo"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center bg-burgundy hover:bg-burgundy-deep text-ivory py-4 text-xs uppercase tracking-[0.14em] font-medium transition-colors"
+                className="w-full text-center bg-burgundy hover:bg-burgundy-deep text-ivory py-4 text-xs uppercase tracking-[0.14em] font-medium transition-colors inline-flex items-center justify-center gap-2 shadow-xs"
               >
-                Hacer pedido por WhatsApp
-              </a>
+                <span>Ver catálogo</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
               <div className="flex justify-between items-center text-[11px] text-taupe">
                 <span>{SITE_CONFIG.location}</span>
                 <a

@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { Product } from "@/lib/products";
-import { formatPrice } from "@/lib/utils";
 
 interface ProductCardProps {
   product: Product;
@@ -117,20 +116,17 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           </p>
         </div>
 
-        {/* Price & Action */}
+        {/* Action */}
         <div className="pt-3 border-t border-beige/60 flex items-center justify-between">
-          <div>
-            <span className="text-[10px] uppercase tracking-wider text-taupe block">Desde</span>
-            <span className="font-serif text-lg font-medium text-charcoal">
-              {formatPrice(product.price)}
-            </span>
-          </div>
+          <span className="text-[11px] uppercase tracking-wider text-taupe font-medium">
+            {product.customizable ? "Confección a Medida" : "Diseño Exclusivo"}
+          </span>
 
           <Link
             href={`/catalogo/${product.slug}`}
             className="text-xs uppercase tracking-wider text-burgundy font-medium inline-flex items-center gap-1 hover:text-burgundy-deep transition-colors"
           >
-            <span>Detalles</span>
+            <span>Ver Ficha</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>

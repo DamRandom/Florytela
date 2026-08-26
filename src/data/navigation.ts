@@ -1,4 +1,4 @@
-﻿import type { NavigationLink, ProductLine, SitePillar } from "@/types";
+import type { NavigationLink, ProductLine, SitePillar } from "@/types";
 
 export const SITE_CONFIG = {
   name: "Florytela by Adriana Martínez",
@@ -13,6 +13,8 @@ export const SITE_CONFIG = {
   email: "hola@florytela.com",
   instagram: "https://instagram.com/florytela",
   instagramHandle: "@florytela",
+  tiktok: "https://tiktok.com/@florytela",
+  tiktokHandle: "@florytela",
   location: "Lima, Perú",
   workshopHours: "Lunes a Sábado con cita previa",
 };

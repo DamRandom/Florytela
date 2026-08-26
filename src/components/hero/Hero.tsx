@@ -67,19 +67,19 @@ export function Hero() {
               className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-5"
             >
               <CTAButton
-                href="/linea/personalizacion"
+                href="/contacto"
                 variant="primary"
                 size="lg"
                 icon={<ArrowUpRight className="w-4 h-4" />}
               >
-                Personalizar Mandil
+                Haz tu pedido
               </CTAButton>
 
               <Link
-                href="/linea/fast"
+                href="/catalogo"
                 className="group inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-taupe hover:text-burgundy transition-colors px-2 py-3"
               >
-                <span>Ver Línea Fast</span>
+                <span>Ver catálogo</span>
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </motion.div>
@@ -124,7 +124,7 @@ export function Hero() {
             >
               <div className="relative aspect-3/4 sm:aspect-4/5 w-full bg-beige-light border border-beige/60 overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/hero-florytela.jpg"
+                  src="/images/hero-florytela.png"
                   alt="Mandil Florytela by Adriana Martínez"
                   fill
                   priority

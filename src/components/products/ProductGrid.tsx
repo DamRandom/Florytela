@@ -15,7 +15,7 @@ interface ProductGridProps {
   defaultCategory?: string;
 }
 
-type SortOption = "featured" | "price-asc" | "price-desc";
+type SortOption = "featured" | "name-asc" | "name-desc";
 
 export function ProductGrid({
   products,
@@ -42,8 +42,8 @@ export function ProductGrid({
         return matchesCategory && matchesSearch;
       })
       .sort((a, b) => {
-        if (sortBy === "price-asc") return a.price - b.price;
-        if (sortBy === "price-desc") return b.price - a.price;
+        if (sortBy === "name-asc") return a.name.localeCompare(b.name);
+        if (sortBy === "name-desc") return b.name.localeCompare(a.name);
         if (a.isFeatured && !b.isFeatured) return -1;
         if (!a.isFeatured && b.isFeatured) return 1;
         return 0;
@@ -102,8 +102,8 @@ export function ProductGrid({
                 aria-label="Ordenar productos"
               >
                 <option value="featured">Destacados</option>
-                <option value="price-asc">Precio: Menor a Mayor</option>
-                <option value="price-desc">Precio: Mayor a Menor</option>
+                <option value="name-asc">Nombre: A - Z</option>
+                <option value="name-desc">Nombre: Z - A</option>
               </select>
             </div>
           </div>

@@ -14,7 +14,6 @@ import {
 import { Product } from "@/lib/products";
 import { ProductGallery } from "./ProductGallery";
 import { WhatsAppButton } from "../ui/WhatsAppButton";
-import { formatPrice } from "@/lib/utils";
 
 interface ProductDetailViewProps {
   product: Product;
@@ -32,9 +31,6 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
   const [withEmbroidery, setWithEmbroidery] = useState(false);
   const [embroideryText, setEmbroideryText] = useState("");
   const [activeTab, setActiveTab] = useState<TabType>("materials");
-
-  const embroideryCost = 250;
-  const calculatedPrice = (product.price + (withEmbroidery ? embroideryCost : 0)) * quantity;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
@@ -90,12 +86,11 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
             «{product.tagline}»
           </p>
 
-          {/* Price */}
-          <div className="mt-4 flex items-baseline gap-3 pb-6 border-b border-beige">
-            <span className="font-serif text-2xl sm:text-3xl font-medium text-burgundy">
-              {formatPrice(calculatedPrice)}
+          {/* Status / Category Divider */}
+          <div className="mt-4 pb-4 border-b border-beige flex items-center justify-between">
+            <span className="text-xs uppercase tracking-widest text-taupe font-medium">
+              {product.customizable ? "Confección y personalización desde 1 pieza" : "Modelo exclusivo listo para producción"}
             </span>
-            <span className="text-xs text-taupe">PEN • Impuestos incluidos</span>
           </div>
 
           {/* Description */}
@@ -151,7 +146,7 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
                     className="w-4 h-4 accent-burgundy cursor-pointer"
                   />
                   <span className="text-xs uppercase tracking-wider font-medium text-charcoal">
-                    Agregar Bordado Personalizado (+{formatPrice(embroideryCost)})
+                    Agregar Bordado Personalizado de Nombre o Logotipo
                   </span>
                 </label>
                 <Sparkles className="w-3.5 h-3.5 text-gold" />

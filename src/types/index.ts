@@ -1,4 +1,4 @@
-﻿// ─────────────────────────────────────────────
+// ─────────────────────────────────────────────
 // Florytela — Central Type Definitions
 // ─────────────────────────────────────────────
 
@@ -12,12 +12,12 @@ export interface Product {
   id: string;
   slug: string;
   name: string;
-  category: "gastronomia" | "barista" | "artesanal" | "especial";
+  category: "fast" | "personalizacion" | "deluxe" | string;
   categoryLabel: string;
   tagline: string;
   shortDescription: string;
   description: string;
-  price: number;
+  price?: number;
   images: string[];
   materials: string[];
   colors: ProductColor[];
@@ -31,6 +31,12 @@ export interface Product {
   badge?: string;
 }
 
+export interface ColorPaletteSwatch {
+  name: string;
+  hex: string;
+  role: string;
+}
+
 export interface ColorPaletteDetail {
   title: string;
   image: string;
@@ -39,18 +45,21 @@ export interface ColorPaletteDetail {
 export interface ColorPalette {
   id: string;
   name: string;
-  magazineTitle: string;
-  philosophyQuote: string;
   primaryColor: string;
   secondaryColor: string;
-  accentColor: string;
-  bgAtmosphereImage: string;
+  accentColor?: string;
   modelApronImage: string;
-  harmonyDescription: string;
-  whyChooseDescription: string;
-  textileSpecs: string;
+  tagline?: string;
+  description?: string;
+  swatches?: ColorPaletteSwatch[];
+  magazineTitle?: string;
+  philosophyQuote?: string;
+  harmonyDescription?: string;
   bottomNote?: string;
-  details: ColorPaletteDetail[];
+  whyChooseDescription?: string;
+  textileSpecs?: string;
+  bgAtmosphereImage?: string;
+  details?: ColorPaletteDetail[];
 }
 
 export interface NavigationLink {

@@ -1,11 +1,9 @@
-"use client";
+﻿"use client";
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { ArrowUpRight, Sparkles } from "lucide-react";
-import { createWhatsAppLink } from "@/lib/whatsapp";
+import { Sparkles } from "lucide-react";
 
 export function ParallaxSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,11 +24,6 @@ export function ParallaxSection() {
 
   // Background image parallax translation
   const yBg = useTransform(smoothProgress, [0, 1], ["-12%", "12%"]);
-
-  const whatsappHref = createWhatsAppLink({
-    type: "custom",
-    customNotes: "Hola Adriana, me gustaría cotizar un mandil personalizado.",
-  });
 
   return (
     <section
@@ -64,7 +57,6 @@ export function ParallaxSection() {
         {/* Minimalist Top Tag */}
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 border border-ivory/20 bg-charcoal/40 mb-8">
           <Sparkles className="w-3.5 h-3.5 text-beige" />
-
           <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-medium text-beige">
             Confección de Autor · Lima, Perú
           </span>
@@ -88,66 +80,37 @@ export function ParallaxSection() {
         {/* Características destacadas */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-10 sm:mt-12 w-full max-w-3xl">
           {/* Desde 1 Pieza */}
-          <div className="group p-5 sm:p-6 flex flex-col items-center text-center bg-transparent backdrop-blur-md backdrop-saturate-150 shadow-[0_12px_40px_rgba(0,0,0,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(0,0,0,0.25)]">
+          <div className="p-5 sm:p-6 flex flex-col items-center text-center">
             <h4 className="font-serif text-lg sm:text-xl text-ivory font-medium drop-shadow-md">
               Desde 1 Pieza
             </h4>
-
-            <span className="w-8 h-px bg-ivory/40 my-3 transition-all duration-500 group-hover:w-12" />
-
+            <span className="w-8 h-px bg-ivory/40 my-3" />
             <p className="text-xs sm:text-sm text-ivory/70 font-light leading-relaxed drop-shadow-sm">
               Personalización total sin mínimos
             </p>
           </div>
 
           {/* Ripstop & Algodón */}
-          <div className="group p-5 sm:p-6 flex flex-col items-center text-center bg-transparent backdrop-blur-md backdrop-saturate-150 shadow-[0_12px_40px_rgba(0,0,0,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(0,0,0,0.25)]">
+          <div className="p-5 sm:p-6 flex flex-col items-center text-center">
             <h4 className="font-serif text-lg sm:text-xl text-ivory font-medium drop-shadow-md">
               Ripstop & Algodón
             </h4>
-
-            <span className="w-8 h-px bg-ivory/40 my-3 transition-all duration-500 group-hover:w-12" />
-
+            <span className="w-8 h-px bg-ivory/40 my-3" />
             <p className="text-xs sm:text-sm text-ivory/70 font-light leading-relaxed drop-shadow-sm">
               Materiales nobles de alto rendimiento
             </p>
           </div>
 
           {/* Envíos */}
-          <div className="group p-5 sm:p-6 flex flex-col items-center text-center bg-transparent backdrop-blur-md backdrop-saturate-150 shadow-[0_12px_40px_rgba(0,0,0,0.18)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(0,0,0,0.25)]">
+          <div className="p-5 sm:p-6 flex flex-col items-center text-center">
             <h4 className="font-serif text-lg sm:text-xl text-ivory font-medium drop-shadow-md">
               Envíos a todo el Perú
             </h4>
-
-            <span className="w-8 h-px bg-ivory/40 my-3 transition-all duration-500 group-hover:w-12" />
-
+            <span className="w-8 h-px bg-ivory/40 my-3" />
             <p className="text-xs sm:text-sm text-ivory/70 font-light leading-relaxed drop-shadow-sm">
               Lima Metropolitana y provincias
             </p>
           </div>
-        </div>
-
-        {/* Action CTAs */}
-        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center gap-5">
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-ivory text-burgundy hover:bg-beige hover:text-burgundy-deep px-8 py-4 text-xs uppercase tracking-[0.16em] font-medium transition-all duration-300 shadow-xl"
-          >
-            <span>Personalizar mi Mandil</span>
-
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
-
-          <Link
-            href="/linea/personalizacion"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-ivory/70 hover:text-ivory font-medium transition-colors py-2"
-          >
-            <span>Explorar Opciones</span>
-
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
         </div>
       </div>
     </section>

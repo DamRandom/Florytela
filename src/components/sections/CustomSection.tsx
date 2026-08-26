@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { SectionHeading } from "../ui/SectionHeading";
@@ -18,13 +18,13 @@ export function CustomSection() {
   });
 
   return (
-    <section className="py-24 sm:py-32 bg-ivory relative overflow-hidden border-t border-beige/60">
+    <section className="py-16 sm:py-24 bg-ivory relative overflow-hidden border-t border-beige/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <SectionHeading
           eyebrow="Línea Personalización · Atelier Interactivo"
           title="Tu mandil, exactamente como lo necesitas"
-          subtitle="La línea principal de Florytela. Elige tu paleta favorita, experimenta la combinación cromática y solicita tu diseño a medida desde una sola unidad."
+          subtitle="Explora las combinaciones cromáticas de nuestro atelier y personaliza tu mandil desde 1 sola pieza."
         />
 
         <PaletteSelector
@@ -33,8 +33,8 @@ export function CustomSection() {
           onChange={setActivePaletteIndex}
         />
 
-        <div className="mt-12 lg:mt-16 bg-ivory border border-beige p-6 sm:p-10 lg:p-12 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="mt-8 sm:mt-10 bg-ivory border border-beige p-5 sm:p-8 lg:p-10 shadow-xs">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <PaletteDetail palette={activePalette} index={activePaletteIndex} />
             <PaletteScene palette={activePalette} whatsappLink={whatsappLink} />
           </div>

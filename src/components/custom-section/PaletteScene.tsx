@@ -15,38 +15,84 @@ interface PaletteSceneProps {
 export function PaletteScene({ palette, whatsappLink }: PaletteSceneProps) {
   return (
     <div className="lg:col-span-6 relative">
-      {/* Marco de imagen dual */}
-      <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full max-w-lg mx-auto bg-beige-light border border-beige/80 shadow-2xl overflow-hidden">
+      {/* Escenario de Estudio Minimalista (Sin foto de fondo, con geometría y color dinámico) */}
+      <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full max-w-lg mx-auto bg-[#F5F2EB] border border-beige/80 shadow-xl overflow-hidden">
 
-        {/* Capa 1: Fondo de atmósfera */}
+        {/* Capa 1: Fondo Geométrico de Estudio con los colores de la paleta activa */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={`bg-${palette.id}`}
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 1, scale: 1 }}
+            key={`geom-${palette.id}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="absolute inset-0"
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0 overflow-hidden pointer-events-none"
           >
-            <Image
-              src={palette.bgAtmosphereImage}
-              alt="Atmósfera de taller Florytela"
-              fill
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover object-center"
+            {/* Gradiente radial ambiental con el color primario */}
+            <div
+              className="absolute -top-12 -right-12 w-80 h-80 rounded-full blur-3xl opacity-30 transition-colors duration-700"
+              style={{ backgroundColor: palette.primaryColor }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-charcoal/40" />
+
+            {/* Gradiente suave inferior con el color secundario */}
+            <div
+              className="absolute -bottom-16 -left-16 w-80 h-80 rounded-full blur-3xl opacity-25 transition-colors duration-700"
+              style={{ backgroundColor: palette.secondaryColor }}
+            />
+
+            {/* Círculo Principal Arquitectónico / Arco de Estudio */}
+            <motion.div
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 h-64 sm:h-80 rounded-full border border-beige/90 bg-ivory/50 backdrop-blur-xs flex items-center justify-center shadow-xs"
+            >
+              {/* Anillo concéntrico interior punteado */}
+              <div className="w-[82%] h-[82%] rounded-full border border-dashed border-beige" />
+            </motion.div>
+
+            {/* Orbe Flotante de Color Primario */}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 0.9 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="absolute top-10 left-8 sm:left-10 w-12 sm:w-14 h-12 sm:h-14 rounded-full border-2 border-ivory shadow-md flex items-center justify-center"
+              style={{ backgroundColor: palette.primaryColor }}
+            />
+
+            {/* Orbe Flotante de Color Secundario */}
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 0.9 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="absolute top-20 right-8 sm:right-10 w-10 sm:w-12 h-10 sm:h-12 rounded-full border-2 border-ivory shadow-md flex items-center justify-center"
+              style={{ backgroundColor: palette.secondaryColor }}
+            />
+
+            {/* Pequeño Acento Cromático */}
+            {palette.accentColor && (
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.35 }}
+                className="absolute bottom-28 right-12 w-6 h-6 rounded-full border-2 border-ivory shadow-xs"
+                style={{ backgroundColor: palette.accentColor }}
+              />
+            )}
+
+            {/* Sombra de suelo / pedestal sutil para el modelo */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-48 sm:w-64 h-6 rounded-full bg-charcoal/10 blur-md" />
           </motion.div>
         </AnimatePresence>
 
-        {/* Capa 2: Modelo con mandil (sin fondo) */}
+        {/* Capa 2: Modelo con Mandil (Sin fondo, protagonista en primer plano) */}
         <AnimatePresence mode="wait">
           <motion.div
             key={`model-${palette.id}`}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
             className="absolute inset-0 z-10 flex items-end justify-center pointer-events-none"
           >
             <div className="relative w-full h-[90%] sm:h-[93%]">
@@ -64,43 +110,44 @@ export function PaletteScene({ palette, whatsappLink }: PaletteSceneProps) {
 
         {/* Badge flotante inferior */}
         <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between z-20 pointer-events-none">
-          <div className="bg-charcoal/70 backdrop-blur-md px-3.5 py-2 border border-ivory/20 shadow-lg">
-            <span className="text-[9px] uppercase tracking-[0.24em] text-ivory/90 font-medium block">
+          <div className="bg-ivory/95 backdrop-blur-md px-3.5 py-2 border border-beige/80 shadow-xs">
+            <span className="text-[9px] uppercase tracking-[0.24em] text-taupe font-medium block">
               Atelier Florytela · Lima
             </span>
-            <h4 className="font-serif text-base text-ivory font-normal mt-0.5">
+            <h4 className="font-serif text-sm sm:text-base text-charcoal font-normal mt-0.5">
               {palette.name}
             </h4>
           </div>
-          <div className="flex items-center gap-1.5 bg-ivory/95 px-3 py-1.5 border border-beige/80 shadow-md">
+
+          <div className="flex items-center gap-1.5 bg-ivory/95 px-3 py-1.5 border border-beige/80 shadow-xs">
             <span
-              className="w-3 h-3 rounded-full border border-charcoal/20"
+              className="w-3.5 h-3.5 rounded-full border border-charcoal/15 shadow-2xs"
               style={{ backgroundColor: palette.primaryColor }}
             />
             <span
-              className="w-3 h-3 rounded-full border border-charcoal/20"
+              className="w-3.5 h-3.5 rounded-full border border-charcoal/15 shadow-2xs"
               style={{ backgroundColor: palette.secondaryColor }}
             />
           </div>
         </div>
       </div>
 
-      {/* CTAs */}
-      <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
+      {/* Botones de acción */}
+      <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
         <a
           href={whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2.5 bg-burgundy hover:bg-burgundy-deep text-ivory py-4 px-7 text-xs uppercase tracking-[0.14em] font-medium transition-all duration-300 shadow-md cursor-pointer text-center"
+          className="inline-flex items-center justify-center gap-2 bg-burgundy hover:bg-burgundy-deep text-ivory py-3.5 px-6 text-xs uppercase tracking-[0.14em] font-medium transition-all duration-300 shadow-xs cursor-pointer text-center"
         >
-          <MessageSquare className="w-4 h-4" />
-          <span>Pedir con esta paleta ({palette.name})</span>
+          <MessageSquare className="w-3.5 h-3.5" />
+          <span>Pedir mandil</span>
         </a>
         <Link
-          href="/linea/personalizacion"
-          className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-[0.14em] text-taupe hover:text-burgundy font-medium transition-colors py-3 px-4 text-center"
+          href="/catalogo"
+          className="inline-flex items-center justify-center gap-1.5 text-xs uppercase tracking-[0.14em] text-taupe hover:text-burgundy font-medium transition-colors py-3.5 px-4 text-center border border-transparent hover:border-beige/80"
         >
-          <span>Ver todas las opciones</span>
+          <span>Ver catálogo</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>

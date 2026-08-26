@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     images: [
       {
-        url: "/images/hero-florytela.jpg",
+        url: "/images/hero-florytela.png",
         width: 1200,
         height: 630,
         alt: SITE_CONFIG.name,
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_CONFIG.name} — Mandiles de Autor`,
     description: SITE_CONFIG.description,
-    images: ["/images/hero-florytela.jpg"],
+    images: ["/images/hero-florytela.png"],
   },
   robots: {
     index: true,
