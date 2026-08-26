@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -190,20 +190,20 @@ function HeroSection() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 w-full sm:w-auto"
             >
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-burgundy hover:bg-burgundy-deep text-ivory px-7 py-4 text-xs uppercase tracking-[0.16em] font-medium transition-all duration-300 shadow-md"
+                className="inline-flex items-center justify-center gap-2 bg-burgundy hover:bg-burgundy-deep text-ivory px-7 py-4 text-xs uppercase tracking-[0.16em] font-medium transition-all duration-300 shadow-md active:scale-[0.98] text-center"
               >
                 <span>Cotizar Línea Deluxe</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
               <Link
                 href="/catalogo"
-                className="group inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-taupe hover:text-burgundy transition-colors px-2 py-4"
+                className="group inline-flex items-center justify-center gap-2 text-xs uppercase tracking-[0.2em] text-taupe hover:text-burgundy transition-colors py-3.5 sm:py-4 px-2 border border-beige/60 sm:border-transparent text-center"
               >
                 <span>Ver catálogo</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -473,19 +473,19 @@ function CTASection() {
             por WhatsApp para iniciar la conceptualización de tu mandil.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4 w-full max-w-md mx-auto">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-ivory text-charcoal hover:bg-beige hover:text-charcoal px-8 py-4 text-xs uppercase tracking-[0.16em] font-medium transition-all duration-300 shadow-md"
+              className="inline-flex items-center justify-center gap-2 bg-ivory text-charcoal hover:bg-beige hover:text-charcoal px-8 py-4 text-xs uppercase tracking-[0.16em] font-medium transition-all duration-300 shadow-md active:scale-[0.98] text-center"
             >
               <span>Consultar por WhatsApp</span>
               <ArrowRight className="w-4 h-4" />
             </a>
             <Link
               href="/contacto"
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-ivory/60 hover:text-ivory font-medium transition-colors py-3"
+              className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-[0.16em] text-ivory/70 hover:text-ivory font-medium transition-colors py-3.5 px-4 border border-ivory/20 sm:border-transparent text-center"
             >
               <span>Formulario de contacto</span>
               <ArrowRight className="w-3.5 h-3.5" />

@@ -174,28 +174,33 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
           )}
 
           {/* Quantity Selector & Order CTA */}
-          <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
             {/* Quantity */}
-            <div className="flex items-center border border-beige bg-ivory w-fit">
-              <button
-                type="button"
-                onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="px-3.5 py-3 text-charcoal hover:text-burgundy transition-colors text-sm"
-                aria-label="Disminuir cantidad"
-              >
-                -
-              </button>
-              <span className="px-3 py-3 text-xs font-mono font-medium text-charcoal min-w-8 text-center">
-                {quantity}
+            <div className="flex items-center justify-between sm:justify-start border border-beige bg-ivory w-full sm:w-fit px-2 sm:px-0">
+              <span className="text-[10px] uppercase tracking-wider text-taupe sm:hidden font-medium pl-2">
+                Cantidad:
               </span>
-              <button
-                type="button"
-                onClick={() => setQuantity(quantity + 1)}
-                className="px-3.5 py-3 text-charcoal hover:text-burgundy transition-colors text-sm"
-                aria-label="Aumentar cantidad"
-              >
-                +
-              </button>
+              <div className="flex items-center">
+                <button
+                  type="button"
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  className="px-4 py-3 text-charcoal hover:text-burgundy transition-colors text-base active:bg-beige-light/50"
+                  aria-label="Disminuir cantidad"
+                >
+                  -
+                </button>
+                <span className="px-3 py-3 text-xs font-mono font-medium text-charcoal min-w-9 text-center">
+                  {quantity}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setQuantity(quantity + 1)}
+                  className="px-4 py-3 text-charcoal hover:text-burgundy transition-colors text-base active:bg-beige-light/50"
+                  aria-label="Aumentar cantidad"
+                >
+                  +
+                </button>
+              </div>
             </div>
 
             {/* Direct WhatsApp Ordering */}
@@ -213,7 +218,7 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
                 }
                 variant="primary"
                 size="lg"
-                className="w-full"
+                className="w-full justify-center active:scale-[0.98]"
               >
                 Solicitar por WhatsApp
               </WhatsAppButton>
@@ -225,9 +230,9 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
           </p>
 
           {/* Technical Tabs */}
-          <div className="mt-12 pt-8 border-t border-beige">
+          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-beige">
             {/* Tab navigation */}
-            <div className="flex items-center gap-2 border-b border-beige overflow-x-auto scrollbar-none pb-px">
+            <div className="flex items-center gap-2 border-b border-beige overflow-x-auto no-scrollbar pb-px snap-x">
               {[
                 { id: "materials" as const, label: "Materiales", icon: Layers },
                 { id: "dimensions" as const, label: "Dimensiones", icon: Info },
@@ -240,7 +245,7 @@ export function ProductDetailView({ product }: ProductDetailViewProps) {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center gap-1.5 px-3 py-2 text-xs uppercase tracking-wider font-medium border-b-2 whitespace-nowrap transition-colors ${
+                    className={`flex items-center gap-1.5 px-3 py-2.5 text-xs uppercase tracking-wider font-medium border-b-2 whitespace-nowrap transition-colors shrink-0 snap-start active:bg-beige-light/30 ${
                       isActive
                         ? "border-burgundy text-burgundy font-semibold"
                         : "border-transparent text-charcoal/60 hover:text-charcoal"

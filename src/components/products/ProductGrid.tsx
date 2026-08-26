@@ -54,10 +54,10 @@ export function ProductGrid({
     <div className="w-full flex flex-col gap-8">
       {/* Controls Bar */}
       {(showFilters || showSearch) && (
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-beige/80">
-          {/* Category Tabs */}
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3.5 pb-4 sm:pb-6 border-b border-beige/80">
+          {/* Category Tabs — Mobile native horizontal touch strip */}
           {showFilters && (
-            <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
+            <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 no-scrollbar snap-x -mx-4 px-4 md:mx-0 md:px-0">
               {CATEGORIES.map((cat) => {
                 const isActive = activeCategory === cat.id;
                 return (
@@ -65,10 +65,10 @@ export function ProductGrid({
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
                     className={cn(
-                      "px-3.5 py-1.5 text-xs uppercase tracking-wider font-medium whitespace-nowrap transition-all duration-300 rounded-none border",
+                      "px-3.5 py-2 text-xs uppercase tracking-wider font-medium whitespace-nowrap transition-all duration-300 rounded-none border shrink-0 snap-start active:scale-95",
                       isActive
                         ? "bg-burgundy text-ivory border-burgundy shadow-xs"
-                        : "bg-ivory/80 text-charcoal/70 border-beige hover:border-gold/60 hover:text-charcoal"
+                        : "bg-ivory/80 text-charcoal/70 border-beige hover:border-taupe/60 hover:text-charcoal active:bg-beige-light/40"
                     )}
                   >
                     {cat.label}
@@ -79,7 +79,7 @@ export function ProductGrid({
           )}
 
           {/* Search & Sort */}
-          <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+          <div className="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end">
             {showSearch && (
               <div className="relative flex-1 md:w-60">
                 <Search className="w-3.5 h-3.5 text-taupe absolute left-3 top-1/2 -translate-y-1/2" />
@@ -88,17 +88,17 @@ export function ProductGrid({
                   placeholder="Buscar textil, modelo..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-ivory border border-beige pl-9 pr-3 py-1.5 text-xs text-charcoal placeholder:text-taupe focus:outline-none focus:border-burgundy"
+                  className="w-full bg-ivory border border-beige pl-8.5 pr-3 py-2 text-xs text-charcoal placeholder:text-taupe focus:outline-none focus:border-burgundy"
                 />
               </div>
             )}
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 shrink-0">
               <SlidersHorizontal className="w-3.5 h-3.5 text-taupe hidden sm:inline" />
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="bg-ivory border border-beige px-2.5 py-1.5 text-xs text-charcoal focus:outline-none focus:border-burgundy uppercase tracking-wider cursor-pointer"
+                className="bg-ivory border border-beige px-2.5 py-2 text-xs text-charcoal focus:outline-none focus:border-burgundy uppercase tracking-wider cursor-pointer"
                 aria-label="Ordenar productos"
               >
                 <option value="featured">Destacados</option>

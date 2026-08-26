@@ -64,20 +64,21 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.45 }}
-              className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-5"
+              className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-5 w-full sm:w-auto"
             >
               <CTAButton
                 href="/contacto"
                 variant="primary"
                 size="lg"
                 icon={<ArrowUpRight className="w-4 h-4" />}
+                className="w-full sm:w-auto justify-center"
               >
                 Haz tu pedido
               </CTAButton>
 
               <Link
                 href="/catalogo"
-                className="group inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-taupe hover:text-burgundy transition-colors px-2 py-3"
+                className="group inline-flex items-center justify-center gap-2 text-xs uppercase tracking-[0.2em] text-taupe hover:text-burgundy transition-colors py-3 px-3 border border-beige/60 sm:border-transparent active:bg-beige-light/30 text-center"
               >
                 <span>Ver catálogo</span>
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -89,25 +90,25 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-14 sm:mt-16 flex items-center gap-3 sm:gap-4 text-[9px] sm:text-[10px] uppercase tracking-[0.24em] text-taupe/70 pl-1"
+              className="mt-10 sm:mt-16 flex items-center gap-3 sm:gap-4 text-[9px] sm:text-[10px] uppercase tracking-[0.24em] text-taupe/70 pl-1"
             >
               <Link
                 href="/linea/fast"
-                className="hover:text-burgundy transition-colors"
+                className="hover:text-burgundy transition-colors py-1"
               >
                 01 Fast
               </Link>
               <span className="w-1 h-1 rounded-full bg-beige" />
               <Link
                 href="/linea/personalizacion"
-                className="hover:text-burgundy transition-colors font-medium text-taupe"
+                className="hover:text-burgundy transition-colors font-medium text-taupe py-1"
               >
                 02 Personalización
               </Link>
               <span className="w-1 h-1 rounded-full bg-beige" />
               <Link
                 href="/linea/deluxe"
-                className="hover:text-burgundy transition-colors"
+                className="hover:text-burgundy transition-colors py-1"
               >
                 03 Deluxe
               </Link>

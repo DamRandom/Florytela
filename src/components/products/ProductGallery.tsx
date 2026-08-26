@@ -50,7 +50,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
         {/* Zoom Action Button */}
         <button
           onClick={() => setLightboxOpen(true)}
-          className="absolute bottom-3.5 right-3.5 bg-ivory/90 hover:bg-ivory text-charcoal p-2.5 shadow-md border border-beige/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="absolute bottom-3 right-3 bg-ivory/90 hover:bg-ivory text-charcoal p-2.5 shadow-md border border-beige/60 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           aria-label="Ampliar fotografía"
         >
           <Maximize2 className="w-4 h-4 text-burgundy" />
@@ -61,38 +61,38 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
           <>
             <button
               onClick={handlePrev}
-              className="absolute left-2.5 top-1/2 -translate-y-1/2 bg-ivory/85 hover:bg-ivory text-charcoal p-2 shadow border border-beige/60 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute left-2.5 top-1/2 -translate-y-1/2 bg-ivory/90 hover:bg-ivory text-charcoal p-2.5 shadow-md border border-beige/60 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity active:scale-90"
               aria-label="Fotografía anterior"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-4 h-4 text-burgundy" />
             </button>
             <button
               onClick={handleNext}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 bg-ivory/85 hover:bg-ivory text-charcoal p-2 shadow border border-beige/60 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 bg-ivory/90 hover:bg-ivory text-charcoal p-2.5 shadow-md border border-beige/60 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity active:scale-90"
               aria-label="Fotografía siguiente"
             >
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4 text-burgundy" />
             </button>
           </>
         )}
 
         {/* Counter indicator */}
-        <div className="absolute top-3 right-3 bg-charcoal/70 backdrop-blur-xs text-ivory text-[10px] uppercase font-mono px-2 py-0.5 tracking-widest">
+        <div className="absolute top-3 right-3 bg-charcoal/75 backdrop-blur-xs text-ivory text-[10px] uppercase font-mono px-2.5 py-0.5 tracking-widest">
           {selectedIndex + 1} / {images.length}
         </div>
       </div>
 
-      {/* Thumbnails list */}
+      {/* Thumbnails list — Touch scrollable strip on mobile */}
       {images.length > 1 && (
-        <div className="grid grid-cols-4 sm:grid-cols-5 gap-3">
+        <div className="flex sm:grid sm:grid-cols-5 gap-2.5 sm:gap-3 overflow-x-auto sm:overflow-visible no-scrollbar snap-x py-1">
           {images.map((img, idx) => (
             <button
               key={idx}
               onClick={() => setSelectedIndex(idx)}
-              className={`relative aspect-square overflow-hidden bg-cream border transition-all duration-300 ${
+              className={`relative aspect-square w-16 sm:w-auto shrink-0 snap-start overflow-hidden bg-cream border transition-all duration-300 active:scale-95 ${
                 selectedIndex === idx
-                  ? "border-burgundy ring-1 ring-burgundy scale-[1.02]"
-                  : "border-beige opacity-70 hover:opacity-100 hover:border-gold"
+                  ? "border-burgundy ring-2 ring-burgundy/40 scale-[1.02]"
+                  : "border-beige opacity-70 hover:opacity-100 hover:border-taupe"
               }`}
               aria-label={`Ver foto ${idx + 1}`}
             >

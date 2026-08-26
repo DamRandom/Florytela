@@ -19,10 +19,13 @@
   --foreground: #211C1D;
 }
 
+/* Mobile Native Ergonomics & Smooth Touch */
 html {
   scroll-behavior: smooth;
   background-color: var(--background);
   color: var(--foreground);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -30,6 +33,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
 }
 
 ::selection {
@@ -37,22 +43,34 @@ body {
   color: #F8F8F7;
 }
 
-/* Scrollbar editorial */
-::-webkit-scrollbar {
-  width: 7px;
+/* Scrollbar editorial para desktop */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #E8E2DB;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #CBC0B2;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #550B14;
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: #E8E2DB;
+/* Ocultar barra de scroll para elementos deslizables en móvil */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-
-::-webkit-scrollbar-thumb {
-  background: #CBC0B2;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #550B14;
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Tipografía helper */
@@ -73,4 +91,12 @@ body {
 .editorial-line-accent {
   height: 1px;
   background: linear-gradient(90deg, transparent, #7E6961, transparent);
+}
+
+/* Safe area padding para iPhones y notch devices */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 1rem);
 }

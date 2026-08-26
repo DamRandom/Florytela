@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { MessageSquare, CheckCircle2, ArrowRight } from "lucide-react";
@@ -97,7 +97,7 @@ export function ContactForm() {
             placeholder="Ej. Mateo Paredes"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full bg-beige-light/30 border border-beige px-3 py-2 text-xs text-charcoal placeholder:text-taupe focus:outline-none focus:border-burgundy transition-colors"
+            className="w-full bg-beige-light/30 border border-beige px-3 py-2.5 sm:py-2 text-sm sm:text-xs text-charcoal placeholder:text-taupe focus:outline-none focus:border-burgundy transition-colors"
           />
         </div>
 
@@ -111,7 +111,7 @@ export function ContactForm() {
             placeholder="+51 987 654 321"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="w-full bg-beige-light/30 border border-beige px-3 py-2 text-xs text-charcoal placeholder:text-taupe focus:outline-none focus:border-burgundy transition-colors"
+            className="w-full bg-beige-light/30 border border-beige px-3 py-2.5 sm:py-2 text-sm sm:text-xs text-charcoal placeholder:text-taupe focus:outline-none focus:border-burgundy transition-colors"
           />
         </div>
       </div>
@@ -126,7 +126,7 @@ export function ContactForm() {
           onChange={(e) =>
             setFormData({ ...formData, inquiryType: e.target.value })
           }
-          className="w-full bg-beige-light/30 border border-beige px-3 py-2 text-xs text-charcoal focus:outline-none focus:border-burgundy transition-colors cursor-pointer"
+          className="w-full bg-beige-light/30 border border-beige px-3 py-2.5 sm:py-2 text-sm sm:text-xs text-charcoal focus:outline-none focus:border-burgundy transition-colors cursor-pointer"
         >
           <option value="personalizacion">Línea Personalización (A medida)</option>
           <option value="fast">Línea Fast (Entrega ágil)</option>
@@ -146,7 +146,7 @@ export function ContactForm() {
           placeholder="Colores, cantidad, bordado de logo o modelo que te interesa..."
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className="w-full bg-beige-light/30 border border-beige p-3 text-xs text-charcoal placeholder:text-taupe focus:outline-none focus:border-burgundy transition-colors resize-y"
+          className="w-full bg-beige-light/30 border border-beige p-3 text-sm sm:text-xs text-charcoal placeholder:text-taupe focus:outline-none focus:border-burgundy transition-colors resize-y"
         />
       </div>
 
@@ -154,7 +154,7 @@ export function ContactForm() {
       <div className="pt-1">
         <button
           type="submit"
-          className="w-full inline-flex items-center justify-center gap-2 bg-burgundy hover:bg-burgundy-deep text-ivory py-3 px-5 text-xs uppercase tracking-[0.14em] font-medium transition-all duration-300 shadow-xs cursor-pointer"
+          className="w-full inline-flex items-center justify-center gap-2 bg-burgundy hover:bg-burgundy-deep text-ivory py-3.5 sm:py-3 px-5 text-xs uppercase tracking-[0.14em] font-medium transition-all duration-300 shadow-xs cursor-pointer active:scale-[0.98]"
         >
           <MessageSquare className="w-3.5 h-3.5" />
           <span>Enviar consulta por WhatsApp</span>
