@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -132,20 +132,20 @@ export function PaletteScene({ palette, whatsappLink }: PaletteSceneProps) {
         </div>
       </div>
 
-      {/* Botones de acción */}
-      <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
+      {/* Botones de acción — Lado a lado y compactos en móvil */}
+      <div className="mt-5 sm:mt-8 flex flex-row items-center justify-center gap-2.5 sm:gap-4 w-full">
         <a
           href={whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 bg-burgundy hover:bg-burgundy-deep text-ivory py-3.5 px-6 text-xs uppercase tracking-[0.14em] font-medium transition-all duration-300 shadow-xs cursor-pointer text-center"
+          className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 bg-burgundy hover:bg-burgundy-deep text-ivory py-2.5 sm:py-3.5 px-4 sm:px-6 text-[11px] sm:text-xs uppercase tracking-[0.14em] font-medium transition-all duration-300 shadow-xs cursor-pointer text-center active:scale-[0.97]"
         >
           <MessageSquare className="w-3.5 h-3.5" />
           <span>Pedir mandil</span>
         </a>
         <Link
           href="/catalogo"
-          className="inline-flex items-center justify-center gap-1.5 text-xs uppercase tracking-[0.14em] text-taupe hover:text-burgundy font-medium transition-colors py-3.5 px-4 text-center border border-transparent hover:border-beige/80"
+          className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1 text-[11px] sm:text-xs uppercase tracking-[0.14em] text-charcoal hover:text-burgundy bg-ivory py-2.5 sm:py-3.5 px-3 sm:px-4 text-center border border-beige hover:border-burgundy active:scale-[0.97] font-medium shadow-2xs"
         >
           <span>Ver catálogo</span>
           <ArrowRight className="w-3.5 h-3.5" />

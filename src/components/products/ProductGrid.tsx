@@ -51,13 +51,43 @@ export function ProductGrid({
   }, [products, activeCategory, searchQuery, sortBy]);
 
   return (
-    <div className="w-full flex flex-col gap-8">
-      {/* Controls Bar */}
+    <div className="w-full flex flex-col gap-4 sm:gap-8">
+
+      {/* ── BARRA SUPERIOR: Buscador + Ordenar en la misma fila (móvil) ── */}
       {(showFilters || showSearch) && (
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3.5 pb-4 sm:pb-6 border-b border-beige/80">
-          {/* Category Tabs — Mobile native horizontal touch strip */}
+        <div className="flex flex-col gap-2.5 sm:gap-4">
+
+          {/* Fila 1: Buscador + Selector de orden (siempre visibles juntos) */}
+          <div className="flex items-center gap-2">
+            {showSearch && (
+              <div className="relative flex-1">
+                <Search className="w-3.5 h-3.5 text-taupe absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Buscar modelo, textil..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-ivory border border-beige pl-8 pr-3 py-2.5 text-xs text-charcoal placeholder:text-taupe/70 focus:outline-none focus:border-burgundy/70"
+                />
+              </div>
+            )}
+            <div className="flex items-center gap-1 shrink-0">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as SortOption)}
+                className="bg-ivory border border-beige px-2 py-2.5 text-[11px] text-charcoal/80 focus:outline-none focus:border-burgundy uppercase tracking-wide cursor-pointer"
+                aria-label="Ordenar productos"
+              >
+                <option value="featured">Destacados</option>
+                <option value="name-asc">A - Z</option>
+                <option value="name-desc">Z - A</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Fila 2: Píldoras de categoría (deslizables) */}
           {showFilters && (
-            <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 no-scrollbar snap-x -mx-4 px-4 md:mx-0 md:px-0">
+            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar snap-x pb-0.5 -mx-4 px-4 sm:mx-0 sm:px-0">
               {CATEGORIES.map((cat) => {
                 const isActive = activeCategory === cat.id;
                 return (
@@ -65,10 +95,10 @@ export function ProductGrid({
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
                     className={cn(
-                      "px-3.5 py-2 text-xs uppercase tracking-wider font-medium whitespace-nowrap transition-all duration-300 rounded-none border shrink-0 snap-start active:scale-95",
+                      "px-3 py-1.5 text-[10px] sm:text-xs uppercase tracking-wider font-medium whitespace-nowrap transition-all duration-200 rounded-none border shrink-0 snap-start active:scale-95",
                       isActive
                         ? "bg-burgundy text-ivory border-burgundy shadow-xs"
-                        : "bg-ivory/80 text-charcoal/70 border-beige hover:border-taupe/60 hover:text-charcoal active:bg-beige-light/40"
+                        : "bg-ivory/80 text-charcoal/65 border-beige hover:border-taupe/60 hover:text-charcoal"
                     )}
                   >
                     {cat.label}
@@ -78,68 +108,36 @@ export function ProductGrid({
             </div>
           )}
 
-          {/* Search & Sort */}
-          <div className="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end">
-            {showSearch && (
-              <div className="relative flex-1 md:w-60">
-                <Search className="w-3.5 h-3.5 text-taupe absolute left-3 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  placeholder="Buscar textil, modelo..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-ivory border border-beige pl-8.5 pr-3 py-2 text-xs text-charcoal placeholder:text-taupe focus:outline-none focus:border-burgundy"
-                />
-              </div>
-            )}
-
-            <div className="flex items-center gap-1.5 shrink-0">
-              <SlidersHorizontal className="w-3.5 h-3.5 text-taupe hidden sm:inline" />
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="bg-ivory border border-beige px-2.5 py-2 text-xs text-charcoal focus:outline-none focus:border-burgundy uppercase tracking-wider cursor-pointer"
-                aria-label="Ordenar productos"
+          {/* Contador sutil + limpiar */}
+          <div className="flex items-center justify-between text-[10px] sm:text-xs text-taupe border-t border-beige/60 pt-2">
+            <span>{filteredProducts.length} de {products.length} piezas</span>
+            {activeCategory !== "all" && (
+              <button
+                onClick={() => setActiveCategory("all")}
+                className="text-burgundy hover:text-burgundy-deep text-[10px] sm:text-xs cursor-pointer underline"
               >
-                <option value="featured">Destacados</option>
-                <option value="name-asc">Nombre: A - Z</option>
-                <option value="name-desc">Nombre: Z - A</option>
-              </select>
-            </div>
+                Limpiar filtro
+              </button>
+            )}
           </div>
         </div>
       )}
 
-      {/* Product count */}
-      <div className="flex items-center justify-between text-xs text-taupe">
-        <span>
-          Mostrando {filteredProducts.length} de {products.length} piezas de autor
-        </span>
-        {activeCategory !== "all" && (
-          <button
-            onClick={() => setActiveCategory("all")}
-            className="text-burgundy underline hover:text-burgundy-deep text-xs cursor-pointer"
-          >
-            Limpiar filtro
-          </button>
-        )}
-      </div>
-
-      {/* Grid */}
+      {/* Grid — 3 columnas en móvil, 4 en desktop */}
       {filteredProducts.length > 0 ? (
         <motion.div
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"
+          className="grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-6 lg:gap-8"
         >
           <AnimatePresence>
             {filteredProducts.map((product, idx) => (
               <motion.div
                 key={product.id}
                 layout
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                transition={{ duration: 0.35, delay: idx * 0.04 }}
               >
                 <ProductCard product={product} />
               </motion.div>

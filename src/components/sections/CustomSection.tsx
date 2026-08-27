@@ -18,7 +18,7 @@ export function CustomSection() {
   });
 
   return (
-    <section className="py-16 sm:py-24 bg-ivory relative overflow-hidden border-t border-beige/60">
+    <section className="py-12 sm:py-20 bg-ivory relative overflow-hidden border-t border-beige/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <SectionHeading
@@ -27,16 +27,27 @@ export function CustomSection() {
           subtitle="Explora las combinaciones cromáticas de nuestro atelier y personaliza tu mandil desde 1 sola pieza."
         />
 
-        <PaletteSelector
-          palettes={COLOR_PALETTES}
-          activeIndex={activePaletteIndex}
-          onChange={setActivePaletteIndex}
-        />
+        <div className="mt-6 sm:mt-10 bg-ivory border border-beige p-3.5 sm:p-8 lg:p-10 shadow-xs">
+          
+          {/* Selector de Paletas — Directamente integrado sobre el escenario interactivo */}
+          <div className="mb-5 sm:mb-8">
+            <PaletteSelector
+              palettes={COLOR_PALETTES}
+              activeIndex={activePaletteIndex}
+              onChange={setActivePaletteIndex}
+            />
+          </div>
 
-        <div className="mt-8 sm:mt-10 bg-ivory border border-beige p-5 sm:p-8 lg:p-10 shadow-xs">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <PaletteDetail palette={activePalette} index={activePaletteIndex} />
-            <PaletteScene palette={activePalette} whatsappLink={whatsappLink} />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
+            {/* FOTO / ESCENARIO — En móvil aparece PRIMERO (order-1), pegado al selector para ver el cambio inmediato */}
+            <div className="order-1 lg:order-2 lg:col-span-6">
+              <PaletteScene palette={activePalette} whatsappLink={whatsappLink} />
+            </div>
+
+            {/* DETALLES DE PALETA — En móvil aparece DEBAJO (order-2) */}
+            <div className="order-2 lg:order-1 lg:col-span-6">
+              <PaletteDetail palette={activePalette} index={activePaletteIndex} />
+            </div>
           </div>
         </div>
 

@@ -40,14 +40,14 @@ export function PhilosophySection() {
                   />
                 </div>
 
-                {/* Cita */}
-                <div className="absolute -top-4 -left-4 sm:-left-6 bg-burgundy/75 backdrop-blur-sm text-ivory p-4 max-w-xs shadow-md border border-ivory/10">
-                  <p className="font-serif italic text-sm sm:text-base leading-snug">
+                {/* Cita — Ubicada en la parte inferior para no tapar rostros */}
+                <div className="absolute bottom-3 sm:-bottom-6 left-3 sm:-left-6 right-3 sm:right-auto bg-burgundy/90 sm:bg-burgundy/80 backdrop-blur-md text-ivory p-3.5 sm:p-4 max-w-xs shadow-lg border border-ivory/15 z-10">
+                  <p className="font-serif italic text-xs sm:text-base leading-snug">
                     «Un buen mandil se siente desde el primer día y mejora con
                     el tiempo.»
                   </p>
 
-                  <span className="text-[10px] uppercase tracking-widest text-ivory/70 block mt-2">
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-ivory/70 block mt-1.5 sm:mt-2">
                     — Adriana Martínez
                   </span>
                 </div>

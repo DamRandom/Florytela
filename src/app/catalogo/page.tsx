@@ -16,17 +16,18 @@ export default function CatalogoPage() {
   const whatsappCustomHref = createWhatsAppLink({ type: "custom" });
 
   return (
-    <div className="pt-28 sm:pt-36 pb-24 bg-ivory">
+    <div className="pt-20 sm:pt-32 pb-16 sm:pb-24 bg-ivory">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] text-burgundy font-medium">
+        {/* Header — compacto en móvil, editorial en desktop */}
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-14">
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-burgundy font-medium">
             Colección Permanente & Ediciones de Taller
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-charcoal font-normal mt-3">
+          <h1 className="font-serif text-2xl sm:text-5xl md:text-6xl text-charcoal font-normal mt-1.5 sm:mt-3">
             El Catálogo Florytela
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-charcoal/70 font-light leading-relaxed">
+          {/* Subtítulo solo visible en desktop */}
+          <p className="hidden sm:block mt-4 text-base sm:text-lg text-charcoal/70 font-light leading-relaxed">
             Cada modelo ha sido perfeccionado a través de prototipos sucesivos para ofrecer la máxima comodidad, ergonomía y elegancia textil.
           </p>
         </div>

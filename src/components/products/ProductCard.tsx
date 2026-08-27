@@ -30,34 +30,34 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
       {/* Image Showcase */}
       <Link
         href={`/catalogo/${product.slug}`}
-        className="relative aspect-4/5 w-full overflow-hidden bg-beige-light block"
+        className="relative aspect-[3/4] w-full overflow-hidden bg-beige-light block"
       >
         <Image
           src={displayImage}
           alt={product.name}
           fill
           priority={priority}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 33vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
         />
 
-        {/* Badges */}
-        <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
+        {/* Badges — solo badge principal en móvil */}
+        <div className="absolute top-1.5 sm:top-3 left-1.5 sm:left-3 flex flex-col gap-1 z-10">
           {product.badge && (
-            <span className="bg-ivory/95 backdrop-blur-sm text-burgundy text-[10px] uppercase tracking-widest font-semibold px-2.5 py-1 border border-beige/60">
+            <span className="bg-ivory/95 backdrop-blur-sm text-burgundy text-[8px] sm:text-[10px] uppercase tracking-widest font-semibold px-1.5 sm:px-2.5 py-0.5 sm:py-1 border border-beige/60">
               {product.badge}
             </span>
           )}
           {product.customizable && (
-            <span className="bg-charcoal/85 backdrop-blur-sm text-ivory text-[9px] uppercase tracking-wider font-medium px-2 py-0.5 inline-flex items-center gap-1 w-fit">
+            <span className="hidden sm:inline-flex bg-charcoal/85 backdrop-blur-sm text-ivory text-[9px] uppercase tracking-wider font-medium px-2 py-0.5 items-center gap-1 w-fit">
               <Sparkles className="w-2.5 h-2.5 text-beige" />
               <span>Personalizable</span>
             </span>
           )}
         </div>
 
-        {/* Quick View Hover Overlay */}
-        <div className="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+        {/* Quick View Hover Overlay — solo desktop */}
+        <div className="hidden sm:flex absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-end justify-center p-4">
           <div className="w-full bg-ivory/95 backdrop-blur-md text-burgundy text-xs uppercase tracking-widest font-medium py-2.5 px-4 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-center gap-1.5 shadow-md">
             <span>Ver Ficha Técnica</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -65,16 +65,14 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
         </div>
       </Link>
 
-      {/* Info Container */}
-      <div className="p-5 flex flex-col flex-1 justify-between gap-3">
+      {/* Info Container — compacto en móvil */}
+      <div className="p-2 sm:p-5 flex flex-col flex-1 justify-between gap-1 sm:gap-3">
         <div>
-          {/* Category & Color Swatches */}
-          <div className="flex items-center justify-between gap-2 mb-1.5">
+          {/* Category label — solo en desktop */}
+          <div className="hidden sm:flex items-center justify-between gap-2 mb-1.5">
             <span className="text-[11px] uppercase tracking-[0.18em] text-taupe font-medium">
               {product.categoryLabel}
             </span>
-
-            {/* Colors preview */}
             {product.colors && product.colors.length > 0 && (
               <div className="flex items-center gap-1">
                 {product.colors.slice(0, 4).map((c, i) => (
@@ -105,23 +103,22 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
 
           {/* Title */}
           <Link href={`/catalogo/${product.slug}`} className="block group-hover:text-burgundy transition-colors">
-            <h3 className="font-serif text-xl sm:text-2xl text-charcoal font-medium leading-snug">
+            <h3 className="font-serif text-[11px] leading-tight sm:text-xl sm:leading-snug text-charcoal font-medium">
               {product.name}
             </h3>
           </Link>
 
-          {/* Tagline / short description */}
-          <p className="mt-1 text-xs text-charcoal/70 line-clamp-2 leading-relaxed font-light">
+          {/* Tagline — solo en desktop */}
+          <p className="hidden sm:block mt-1 text-xs text-charcoal/70 line-clamp-2 leading-relaxed font-light">
             {product.shortDescription}
           </p>
         </div>
 
-        {/* Action */}
-        <div className="pt-3 border-t border-beige/60 flex items-center justify-between">
+        {/* Action — solo en desktop */}
+        <div className="hidden sm:flex pt-3 border-t border-beige/60 items-center justify-between">
           <span className="text-[11px] uppercase tracking-wider text-taupe font-medium">
             {product.customizable ? "Confección a Medida" : "Diseño Exclusivo"}
           </span>
-
           <Link
             href={`/catalogo/${product.slug}`}
             className="text-xs uppercase tracking-wider text-burgundy font-medium inline-flex items-center gap-1 hover:text-burgundy-deep transition-colors"
