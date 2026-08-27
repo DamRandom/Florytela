@@ -119,7 +119,7 @@ const idealAudiences = [
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[88vh] flex items-center overflow-hidden bg-ivory pt-24 border-b border-beige">
+    <section className="relative flex items-center overflow-hidden bg-ivory pt-20 sm:pt-24 pb-16 sm:pb-0 sm:min-h-[88vh] border-b border-beige">
       {/* Fondo geométrico abstracto minimalista de lujo */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 opacity-[0.018] bg-[radial-gradient(#550B14_1px,transparent_1px)] bg-size-[32px_32px]" />
@@ -144,7 +144,7 @@ function HeroSection() {
         <div className="hidden lg:block absolute right-[38%] top-0 bottom-0 w-px bg-beige/50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full py-10 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Columna izquierda: Contenido */}
           <div className="lg:col-span-7">
@@ -264,8 +264,8 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5">
+      {/* Scroll hint — solo desktop */}
+      <div className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-1.5">
         <span className="text-[9px] uppercase tracking-[0.28em] text-taupe/40">
           Descubre más
         </span>
@@ -280,53 +280,114 @@ function HeroSection() {
 }
 
 function PillarsGrid() {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, clientWidth } = scrollRef.current;
+    const index = Math.round(scrollLeft / (clientWidth * 0.82));
+    setActiveIndex(Math.min(Math.max(index, 0), pillars.length - 1));
+  };
+
+  const scrollToIndex = (index: number) => {
+    if (!scrollRef.current) return;
+    const card = scrollRef.current.children[0] as HTMLElement;
+    const cardWidth = card?.offsetWidth || 280;
+    scrollRef.current.scrollTo({ left: index * (cardWidth + 12), behavior: "smooth" });
+    setActiveIndex(index);
+  };
+
   return (
-    <section className="py-20 sm:py-28 bg-ivory border-b border-beige">
+    <section className="py-14 sm:py-28 bg-ivory border-b border-beige">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
+
+        {/* Encabezado con flechas en móvil */}
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 sm:mb-14">
           <div>
-            <span className="text-[10px] uppercase tracking-[0.28em] text-taupe font-medium block mb-3">
+            <span className="text-[10px] uppercase tracking-[0.28em] text-taupe font-medium block mb-2 sm:mb-3">
               Distinción Absoluta
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-charcoal font-normal leading-tight">
+            <h2 className="font-serif text-2.5xl sm:text-4xl text-charcoal font-normal leading-tight">
               Lo que define a
               <br />
               <span className="italic text-burgundy">la Línea Deluxe.</span>
             </h2>
           </div>
-          <p className="text-sm text-charcoal/60 font-light leading-relaxed max-w-xs sm:text-right">
+
+          {/* Controles — solo móvil */}
+          <div className="flex items-center justify-between sm:hidden gap-3 border-t border-beige/60 pt-3">
+            <p className="text-xs text-charcoal/55 font-light">
+              Obra textil para perdurar.
+            </p>
+            <div className="flex items-center gap-1 shrink-0">
+              <button
+                onClick={() => scrollToIndex(Math.max(0, activeIndex - 1))}
+                className="w-8 h-8 border border-beige hover:border-burgundy hover:text-burgundy flex items-center justify-center text-charcoal transition-colors bg-ivory active:scale-95 cursor-pointer"
+                aria-label="Anterior"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6" /></svg>
+              </button>
+              <button
+                onClick={() => scrollToIndex(Math.min(pillars.length - 1, activeIndex + 1))}
+                className="w-8 h-8 border border-beige hover:border-burgundy hover:text-burgundy flex items-center justify-center text-charcoal transition-colors bg-ivory active:scale-95 cursor-pointer"
+                aria-label="Siguiente"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <p className="hidden sm:block text-sm text-charcoal/60 font-light leading-relaxed max-w-xs sm:text-right">
             Cada pieza se concibe como una obra textil pensada para perdurar y destacar con distinción.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-x divide-y divide-beige border border-beige">
+        {/* Carousel en móvil / Grid en desktop */}
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="flex lg:grid lg:grid-cols-3 gap-3 sm:gap-0 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scroll-smooth pb-3 lg:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar lg:border lg:border-beige lg:divide-x lg:divide-y lg:divide-beige"
+        >
           {pillars.map((p, idx) => {
             const Icon = p.icon;
             return (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: idx * 0.07 }}
-                className="p-8 bg-ivory group hover:bg-beige-light/40 transition-colors duration-300"
+                className="w-[82vw] sm:w-auto shrink-0 lg:shrink snap-center"
               >
-                <div className="w-8 h-8 flex items-center justify-center mb-5">
-                  <Icon
-                    className="w-5 h-5 text-burgundy opacity-80"
-                    strokeWidth={1.5}
-                  />
-                </div>
-                <h3 className="font-serif text-lg text-charcoal font-medium mb-2 group-hover:text-burgundy transition-colors duration-300">
-                  {p.title}
-                </h3>
-                <p className="text-sm text-charcoal/60 leading-relaxed font-light">
-                  {p.description}
-                </p>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.45, delay: idx * 0.06 }}
+                  className="p-6 sm:p-8 bg-ivory border border-beige lg:border-0 group hover:bg-beige-light/40 transition-colors duration-300 h-full"
+                >
+                  <div className="w-8 h-8 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-burgundy opacity-80" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-serif text-base sm:text-lg text-charcoal font-medium mb-2 group-hover:text-burgundy transition-colors duration-300">
+                    {p.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-charcoal/60 leading-relaxed font-light">{p.description}</p>
+                </motion.div>
+              </div>
             );
           })}
         </div>
+
+        {/* Dots indicadores — solo móvil */}
+        <div className="flex justify-center items-center gap-1.5 mt-3 lg:hidden">
+          {pillars.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => scrollToIndex(idx)}
+              className={`h-1 transition-all duration-300 cursor-pointer ${activeIndex === idx ? "w-5 bg-burgundy" : "w-1.5 bg-beige hover:bg-taupe"}`}
+              aria-label={`Detalle ${idx + 1}`}
+            />
+          ))}
+        </div>
+
       </div>
     </section>
   );
@@ -404,47 +465,17 @@ function ProcessSection() {
 
 function IdealForSection() {
   return (
-    <section className="py-20 sm:py-24 bg-beige-light/20 border-b border-beige">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <span className="text-[10px] uppercase tracking-[0.28em] text-taupe font-medium block mb-3">
-            Destinado a la Excelencia
+    <section className="py-16 sm:py-24 bg-beige-light/20 border-b border-beige">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span className="text-[10px] uppercase tracking-[0.28em] text-taupe font-medium block mb-3">
+          Destinado a la Excelencia
+        </span>
+        <h2 className="font-serif text-3xl sm:text-4xl text-charcoal font-normal">
+          Concebido para quienes{" "}
+          <span className="italic text-burgundy">
+            exigen lo excepcional.
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl text-charcoal font-normal">
-            Concebido para quienes{" "}
-            <span className="italic text-burgundy">
-              exigen lo excepcional.
-            </span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 border border-beige divide-y sm:divide-y-0 sm:divide-x divide-beige">
-          {idealAudiences.map((a, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="p-8 sm:p-10 bg-ivory"
-            >
-              <h3 className="font-serif text-xl text-charcoal font-medium mb-5">
-                {a.title}
-              </h3>
-              <ul className="space-y-2.5">
-                {a.items.map((item, j) => (
-                  <li
-                    key={j}
-                    className="flex items-start gap-2.5 text-sm text-charcoal/65 font-light"
-                  >
-                    <span className="mt-1.5 w-1 h-1 rounded-full bg-burgundy shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
+        </h2>
       </div>
     </section>
   );

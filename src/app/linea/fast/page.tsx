@@ -70,7 +70,7 @@ const steps = [
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-ivory pt-24 border-b border-beige">
+    <section className="relative flex items-center overflow-hidden bg-ivory pt-20 sm:pt-24 pb-16 sm:pb-0 sm:min-h-[85vh] border-b border-beige">
       {/* Fondo geométrico abstracto minimalista */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 opacity-[0.018] bg-[radial-gradient(#550B14_1px,transparent_1px)] bg-size-[32px_32px]" />
@@ -95,7 +95,7 @@ function HeroSection() {
         <div className="hidden lg:block absolute right-[40%] top-0 bottom-0 w-px bg-beige/50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full py-10 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Columna izquierda */}
           <div className="lg:col-span-7">
@@ -211,8 +211,8 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5">
+      {/* Scroll hint — solo desktop */}
+      <div className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-1.5">
         <span className="text-[9px] uppercase tracking-[0.28em] text-taupe/40">Descubre más</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
@@ -377,35 +377,38 @@ function ProcessSection() {
 
 function FastVsCustomSection() {
   return (
-    <section className="py-20 sm:py-24 bg-ivory">
+    <section className="py-12 sm:py-24 bg-ivory">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <span className="text-[10px] uppercase tracking-[0.28em] text-taupe font-medium block mb-3">
+        <div className="text-center mb-6 sm:mb-12">
+          <span className="text-[10px] uppercase tracking-[0.28em] text-taupe font-medium block mb-2 sm:mb-3">
             ¿Cuál es para ti?
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl text-charcoal font-normal">
+          <h2 className="font-serif text-xl sm:text-4xl text-charcoal font-normal">
             Fast vs.{" "}
             <span className="italic text-burgundy">Personalización.</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-beige divide-y sm:divide-y-0 sm:divide-x divide-beige">
+        {/* Siempre 2 columnas — incluso en móvil */}
+        <div className="grid grid-cols-2 gap-0 border border-beige divide-x divide-beige">
           {/* Fast */}
-          <div className="bg-ivory p-8 sm:p-10">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-taupe" />
-              <span className="text-[10px] uppercase tracking-[0.26em] font-medium text-taupe">Línea Fast</span>
+          <div className="bg-ivory p-4 sm:p-10">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <div className="w-1.5 h-1.5 rounded-full bg-taupe shrink-0" />
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.22em] sm:tracking-[0.26em] font-medium text-taupe">
+                Línea Fast
+              </span>
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {[
-                "Modelos prediseñados listos para producir",
-                "Eliges el color que prefieras para tu mandil",
-                "Proceso de pedido simplificado y ágil",
-                "Ideal para necesidades inmediatas y equipos",
-                "Desde 1 pieza con precio directo y accesible",
+                "Modelos prediseñados",
+                "Color a tu elección",
+                "Pedido simplificado",
+                "Para equipos e inmediatos",
+                "Desde 1 pieza",
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-sm text-charcoal/70 font-light">
-                  <span className="mt-1.5 w-1 h-1 rounded-full bg-taupe shrink-0" />
+                <li key={i} className="flex items-start gap-1.5 sm:gap-2.5 text-[10px] sm:text-sm text-charcoal/70 font-light leading-snug">
+                  <span className="mt-1 w-1 h-1 rounded-full bg-taupe shrink-0" />
                   {item}
                 </li>
               ))}
@@ -413,33 +416,33 @@ function FastVsCustomSection() {
           </div>
 
           {/* Personalización */}
-          <div className="bg-burgundy p-8 sm:p-10">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-ivory/60" />
-              <span className="text-[10px] uppercase tracking-[0.26em] font-medium text-ivory/70">
-                Línea Personalización
+          <div className="bg-burgundy p-4 sm:p-10">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <div className="w-1.5 h-1.5 rounded-full bg-ivory/60 shrink-0" />
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.26em] font-medium text-ivory/70">
+                Personalización
               </span>
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {[
-                "Modelo, medidas y bolsillos diseñados desde cero",
-                "Cualquier color o combinación sin límites",
-                "Bordado de logotipo o monograma incluido",
-                "Asesoría directa con Adriana Martínez",
-                "Para marcas que cuidan cada milímetro",
+                "Diseñado desde cero",
+                "Cualquier combinación",
+                "Bordado de logotipo",
+                "Asesoría con Adriana",
+                "Para marcas exigentes",
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-sm text-ivory/80 font-light">
-                  <span className="mt-1.5 w-1 h-1 rounded-full bg-ivory/40 shrink-0" />
+                <li key={i} className="flex items-start gap-1.5 sm:gap-2.5 text-[10px] sm:text-sm text-ivory/80 font-light leading-snug">
+                  <span className="mt-1 w-1 h-1 rounded-full bg-ivory/40 shrink-0" />
                   {item}
                 </li>
               ))}
             </ul>
             <Link
               href="/linea/personalizacion"
-              className="inline-flex items-center gap-2 mt-7 text-[11px] uppercase tracking-[0.2em] text-ivory/70 hover:text-ivory transition-colors font-medium"
+              className="inline-flex items-center gap-1.5 mt-4 sm:mt-7 text-[9px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.2em] text-ivory/70 hover:text-ivory transition-colors font-medium"
             >
-              <span>Conocer más</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>Ver más</span>
+              <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             </Link>
           </div>
         </div>

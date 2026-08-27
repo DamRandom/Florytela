@@ -94,11 +94,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Divisor visual en móvil entre marca y columnas de links */}
-          <div className="sm:hidden col-span-1 h-px bg-beige/60" />
-
-          {/* Col 2 — Nuestras Líneas */}
-          <div className="lg:col-span-3">
+          {/* Col 2 — Nuestras Líneas — oculto en móvil */}
+          <div className="hidden sm:block lg:col-span-3">
             <h4 className="text-[10px] uppercase tracking-[0.26em] font-semibold text-burgundy mb-4">
               Nuestras líneas
             </h4>
@@ -126,8 +123,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 3 — Atelier */}
-          <div className="lg:col-span-2">
+          {/* Col 3 — Atelier — oculto en móvil */}
+          <div className="hidden sm:block lg:col-span-2">
             <h4 className="text-[10px] uppercase tracking-[0.26em] font-semibold text-burgundy mb-4">
               Atelier
             </h4>
@@ -146,8 +143,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4 — Contacto directo */}
-          <div className="sm:col-span-2 lg:col-span-3">
+          {/* Col 4 — Contacto directo — oculto en móvil */}
+          <div className="hidden sm:block sm:col-span-2 lg:col-span-3">
             <h4 className="text-[10px] uppercase tracking-[0.26em] font-semibold text-burgundy mb-4">
               Contacto directo
             </h4>
