@@ -12,7 +12,7 @@ interface PaletteSelectorProps {
 
 export function PaletteSelector({ palettes, activeIndex, onChange }: PaletteSelectorProps) {
   return (
-    <div className="flex sm:flex-wrap items-center sm:justify-center gap-2 sm:gap-3.5 overflow-x-auto no-scrollbar py-1 px-1 -mx-2 sm:mx-0 px-2 sm:px-0 scroll-smooth snap-x">
+    <div className="flex sm:flex-wrap items-center sm:justify-center gap-2 sm:gap-3.5 overflow-x-auto no-scrollbar py-1 px-1 -mx-2 sm:mx-0 sm:px-0 scroll-smooth snap-x">
       {palettes.map((palette, index) => {
         const isSelected = activeIndex === index;
         return (

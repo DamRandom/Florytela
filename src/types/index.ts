@@ -43,22 +43,72 @@ export interface ColorPaletteDetail {
 }
 
 export interface ColorPalette {
+  // ─────────────────────────────────────────
+  // Identificación
+  // ─────────────────────────────────────────
+
   id: string;
   name: string;
+
+  // ─────────────────────────────────────────
+  // Colores del mandil
+  // ─────────────────────────────────────────
+
   primaryColor: string;
   secondaryColor: string;
   accentColor?: string;
+
+  // ─────────────────────────────────────────
+  // Imagen principal del mandil
+  // ─────────────────────────────────────────
+
   modelApronImage: string;
+
+  // ─────────────────────────────────────────
+  // Información editorial
+  // ─────────────────────────────────────────
+
   tagline?: string;
   description?: string;
-  swatches?: ColorPaletteSwatch[];
   magazineTitle?: string;
   philosophyQuote?: string;
+
+  // ─────────────────────────────────────────
+  // Descripciones del producto
+  // ─────────────────────────────────────────
+
   harmonyDescription?: string;
-  bottomNote?: string;
   whyChooseDescription?: string;
   textileSpecs?: string;
+  bottomNote?: string;
+
+  // ─────────────────────────────────────────
+  // Paleta cromática
+  // ─────────────────────────────────────────
+
+  swatches?: ColorPaletteSwatch[];
+
+  // ─────────────────────────────────────────
+  // Colores del escenario / fondo
+  // ─────────────────────────────────────────
+
+  backgroundColor?: string;
+  backgroundSecondaryColor?: string;
+  backgroundAccentColor?: string;
+  backgroundLightColor?: string;
+  backgroundPedestalColor?: string;
+  backgroundLineColor?: string;
+
+  // ─────────────────────────────────────────
+  // Imagen atmosférica opcional
+  // ─────────────────────────────────────────
+
   bgAtmosphereImage?: string;
+
+  // ─────────────────────────────────────────
+  // Detalles adicionales
+  // ─────────────────────────────────────────
+
   details?: ColorPaletteDetail[];
 }
 

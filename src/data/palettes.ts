@@ -2,185 +2,197 @@ import type { ColorPalette } from "@/types";
 
 export const COLOR_PALETTES: ColorPalette[] = [
   {
-    id: "ejecutivo",
-    name: "Negro & Gris",
-    magazineTitle: "MANDIL EJECUTIVO · NEGRO & GRIS",
-    philosophyQuote:
-      "ELEGANCIA PROFESIONAL · FUNCIONALIDAD · CARÁCTER CONTEMPORÁNEO",
-    primaryColor: "#1A1A1A",
-    secondaryColor: "#B8B8B8",
-    accentColor: "#7A5C3E",
-    bgAtmosphereImage: "/images/custom/fondo.png",
-    modelApronImage: "/images/custom/ejecutivo-modelo.png",
-    harmonyDescription:
-      "El negro profundo funciona como base dominante, aportando una presencia sobria y profesional. El panel central en gris claro genera contraste visual y define la silueta del mandil, mientras que los detalles en cuero y los herrajes metálicos añaden un carácter artesanal y sofisticado.",
-    whyChooseDescription:
-      "Diseñado para entornos gastronómicos donde la imagen y la funcionalidad deben ir de la mano. Su composición de alto contraste aporta una apariencia moderna y profesional, mientras que los bolsillos delanteros ofrecen practicidad durante la jornada.",
-    textileSpecs:
-      "Cuero & Herrajes: Tirantes de cuero con herrajes metálicos que refuerzan la estética robusta y premium del mandil.",
-    bottomNote:
-      "Mandil de estética profesional · Contraste negro y gris · Tirantes de cuero · Herrajes metálicos",
-    details: [
+    id: "1",
+
+    name: "Burgundy & Cream",
+
+    magazineTitle: "BURGUNDY · CREAM",
+
+    philosophyQuote: "CARÁCTER PROFUNDO · CALIDEZ · ELEGANCIA CONTEMPORÁNEA",
+
+    primaryColor: "#47171B",
+
+    secondaryColor: "#CBB194",
+
+    backgroundColor: "#2A1013",
+
+    backgroundSecondaryColor: "#3D181B",
+
+    backgroundAccentColor: "#6B3436",
+
+    backgroundLightColor: "#E6D6C5",
+
+    backgroundPedestalColor: "#B99C82",
+
+    backgroundLineColor: "#8C6658",
+
+    modelApronImage: "/images/custom/Burgundy Cream.png",
+
+    swatches: [
       {
-        title: "Bolsillo frontal",
-        image: "/images/custom/ejecutivo-detalle-1.png",
+        name: "Burgundy",
+        hex: "#47171B",
+        role: "Base y paneles del mandil",
       },
       {
-        title: "Tirante de cuero",
-        image: "/images/custom/ejecutivo-detalle-2.png",
-      },
-      {
-        title: "Panel de contraste",
-        image: "/images/custom/ejecutivo-detalle-3.png",
-      },
-      {
-        title: "Herraje metálico",
-        image: "/images/custom/ejecutivo-detalle-4.png",
+        name: "Cream",
+        hex: "#CBB194",
+        role: "Paneles y bolsillos",
       },
     ],
-  },
-  {
-    id: "ivory-rose",
-
-    name: "Borgoña & Ivory",
-
-    magazineTitle: "BURGUNDY IVORY",
-
-    philosophyQuote:
-      "ELEGANCIA CÁLIDA · CONTRASTE PROFUNDO · CARÁCTER ARTESANAL",
-
-    primaryColor: "#550B14",
-
-    secondaryColor: "#F8F6F0",
-
-    accentColor: "#9A5A32",
-
-    bgAtmosphereImage: "/images/custom/ivory-fondo.png",
-
-    modelApronImage: "/images/custom/ivory-modelo.png",
 
     harmonyDescription:
-      "El borgoña profundo establece la base visual de la composición y aporta intensidad, sofisticación y carácter. El ivory equilibra la paleta con una presencia luminosa y limpia, mientras que los detalles en cuero caramelo introducen una nota cálida que conecta ambos tonos y refuerza su carácter artesanal.",
+      "El burgundy aporta profundidad, carácter y una sensación cálida y sofisticada, mientras que el cream suaviza la composición y aporta luminosidad. La división vertical de ambos tonos crea un contraste elegante y equilibrado, dando al mandil una presencia distintiva y contemporánea.",
 
     whyChooseDescription:
-      "Una combinación pensada para marcas que buscan una estética elegante, cálida y con personalidad. El contraste entre borgoña e ivory crea una composición visualmente fuerte sin resultar agresiva, mientras que los acentos en cuero aportan profundidad y una sensación de trabajo artesanal. El resultado es una paleta sofisticada, reconocible y fácil de asociar con una identidad premium.",
+      "Diseñado para profesionales que buscan una imagen con personalidad y elegancia. La combinación de burgundy y cream ofrece una estética cálida y refinada, mientras que sus múltiples bolsillos delanteros proporcionan funcionalidad para mantener herramientas y accesorios esenciales siempre al alcance durante la jornada.",
 
     textileSpecs:
-      "Borgoña profundo + Ivory + Cuero caramelo: una combinación de alto contraste donde el borgoña aporta carácter, el ivory luminosidad y el cuero un acento cálido que equilibra la composición.",
+      "Construcción completamente textil, con cuerpo, tirantes, cintura y bolsillos confeccionados en tejido resistente. Incorpora herrajes metálicos en los puntos de ajuste y sujeción para aportar funcionalidad, durabilidad y un acabado contemporáneo.",
 
     bottomNote:
-      "Borgoña profundo · Ivory luminoso · Acentos en cuero caramelo · Contraste cálido · Estética sofisticada",
-
-    details: [
-      {
-        title: "Contraste borgoña & ivory",
-        image: "/images/custom/ivory-detalle-1.png",
-      },
-      {
-        title: "Acentos en cuero",
-        image: "/images/custom/ivory-detalle-2.png",
-      },
-      {
-        title: "Borgoña profundo",
-        image: "/images/custom/ivory-detalle-3.png",
-      },
-      {
-        title: "Base ivory",
-        image: "/images/custom/ivory-detalle-4.png",
-      },
-    ],
+      "Mandil de estética profesional · Burgundy & cream · Construcción textil · Bolsillos funcionales · Herrajes metálicos",
   },
   {
-    id: "verde",
+    id: "2",
+    name: "Oliva & Crema",
+    magazineTitle: "OLIVA · CREMA",
+    philosophyQuote:
+      "CARÁCTER NATURAL · FUNCIONALIDAD · ELEGANCIA CONTEMPORÁNEA",
+    primaryColor: "#4A4A27",
+    secondaryColor: "#CBB194",
+    backgroundColor: "#3B311D",
+    backgroundSecondaryColor: "#4C3F28",
+    backgroundAccentColor: "#D8C4AC",
+    backgroundLightColor: "#EAD8C4",
+    backgroundPedestalColor: "#C3AA8F",
+    backgroundLineColor: "#B9A386",
+    modelApronImage: "/images/custom/OliveCream.png",
+    swatches: [
+      {
+        name: "Oliva Profundo",
+        hex: "#4A4A27",
+        role: "Base del mandil",
+      },
+      {
+        name: "Crema Natural",
+        hex: "#CBB194",
+        role: "Paneles del mandil",
+      },
+    ],
+    harmonyDescription:
+      "El verde oliva funciona como base dominante, aportando carácter, profundidad y una estética natural. Los paneles en crema equilibran la composición con una apariencia limpia y sofisticada, creando una combinación atemporal, versátil y visualmente equilibrada.",
+    whyChooseDescription:
+      "Diseñado para profesionales que buscan una imagen distintiva sin sacrificar funcionalidad. La combinación de verde oliva y crema crea una presencia elegante y versátil, mientras que sus múltiples bolsillos delanteros permiten mantener herramientas y accesorios esenciales siempre al alcance durante la jornada.",
+    textileSpecs:
+      "Construcción completamente textil, con cuerpo, tirantes y bolsillos confeccionados en tejido resistente. Incorpora herrajes metálicos en los puntos de ajuste y sujeción para aportar durabilidad y un acabado contemporáneo.",
+    bottomNote:
+      "Mandil de estética profesional · Verde oliva & crema · Construcción textil · Bolsillos funcionales · Herrajes metálicos",
+  },
+  {
+    id: "3",
 
-    name: "Ciprés & Roble",
+    name: "Chocolate & Negro",
 
-    magazineTitle: "CIPRÉS & ROBLE",
+    magazineTitle: "CHOCOLATE · NEGRO",
 
     philosophyQuote:
-      "PROFUNDIDAD TERROSA · CONTRASTE NATURAL · CARÁCTER ARTESANAL",
+      "CARÁCTER SOBRIO · CONTRASTE · FUNCIONALIDAD CONTEMPORÁNEA",
 
-    primaryColor: "#2E332F",
+    primaryColor: "#4A2418",
 
-    secondaryColor: "#77715F",
+    secondaryColor: "#1A1A1A",
 
-    accentColor: "#6B4632",
+    backgroundColor: "#241711",
 
-    bgAtmosphereImage: "/images/custom/verde-fondo.jpg",
+    backgroundSecondaryColor: "#352019",
 
-    modelApronImage: "/images/custom/roble-modelo.png",
+    backgroundAccentColor: "#6A4535",
+
+    backgroundLightColor: "#D8C7B8",
+
+    backgroundPedestalColor: "#9A7763",
+
+    backgroundLineColor: "#6F5041",
+
+    modelApronImage: "/images/custom/ChocklateBlack.png",
+
+    swatches: [
+      {
+        name: "Chocolate Profundo",
+        hex: "#4A2418",
+        role: "Base y paneles del mandil",
+      },
+      {
+        name: "Negro Carbón",
+        hex: "#1A1A1A",
+        role: "Paneles y bolsillos",
+      },
+    ],
 
     harmonyDescription:
-      "El carbón profundo establece la base de la composición y aporta sobriedad y presencia. Sobre esta base aparece un verde ciprés apagado, de matiz terroso, que introduce una sensación natural y sofisticada. Los acentos en roble y marrón chocolate aportan calidez y profundidad, creando una paleta equilibrada entre tonos fríos, neutros y cálidos.",
+      "El chocolate profundo aporta calidez, carácter y una presencia sofisticada, mientras que el negro crea un contraste firme y contemporáneo. La división vertical de ambos tonos define visualmente la silueta del mandil y genera una estética equilibrada, sobria y profesional.",
 
     whyChooseDescription:
-      "Una combinación pensada para transmitir carácter sin recurrir a colores intensos. El carbón aporta elegancia y versatilidad, el verde ciprés conecta la composición con una estética natural y artesanal, mientras que los tonos roble y chocolate introducen pequeños puntos de calidez. El resultado es una paleta madura, masculina y contemporánea, ideal para marcas que buscan una identidad sólida y sofisticada.",
+      "Diseñado para profesionales que buscan una apariencia elegante y con carácter. La combinación de chocolate y negro ofrece una imagen versátil y distintiva, mientras que sus bolsillos delanteros proporcionan espacio práctico para mantener herramientas y accesorios esenciales siempre al alcance durante la jornada.",
 
     textileSpecs:
-      "Carbón profundo + Verde ciprés apagado + Marrón roble: una combinación de tonos oscuros y terrosos que genera profundidad visual, contraste equilibrado y una estética artesanal contemporánea.",
+      "Construcción completamente textil, con cuerpo, tirantes, cintura y bolsillos confeccionados en tejido resistente. Incorpora herrajes metálicos en los puntos de ajuste y sujeción para aportar funcionalidad, durabilidad y un acabado contemporáneo.",
 
     bottomNote:
-      "Carbón profundo · Verde ciprés · Marrón roble · Tonos terrosos · Contraste natural",
-
-    details: [
-      {
-        title: "Contraste carbón & ciprés",
-        image: "/images/custom/verde-detalle-1.jpg",
-      },
-      {
-        title: "Acentos roble",
-        image: "/images/custom/verde-detalle-2.jpg",
-      },
-      {
-        title: "Verde ciprés",
-        image: "/images/custom/verde-detalle-3.jpg",
-      },
-      {
-        title: "Paleta terrosa",
-        image: "/images/custom/verde-detalle-4.jpg",
-      },
-    ],
+      "Mandil de estética profesional · Chocolate & negro · Construcción textil · Bolsillos funcionales · Herrajes metálicos",
   },
   {
-    id: "carbon",
-    name: "Carbón & Níquel",
-    magazineTitle: "CHARCOAL NOIR",
+    id: "4",
+
+    name: "Azul Marino & Gris",
+
+    magazineTitle: "AZUL MARINO · GRIS",
+
     philosophyQuote:
-      "SOBRIEDAD VANGUARDISTA · CONTRASTE DE ALTO IMPACTO Y CARÁCTER PROFESIONAL",
+      "ELEGANCIA SOBRIA · CONTRASTE · FUNCIONALIDAD CONTEMPORÁNEA",
 
-    primaryColor: "#211C1D",
-    secondaryColor: "#D71920",
-    accentColor: "#B8B3AC",
+    primaryColor: "#172D4D",
 
-    bgAtmosphereImage: "/images/custom/carbon-fondo.jpg",
-    modelApronImage: "/images/custom/noir-modelo.png",
+    secondaryColor: "#D8D8D5",
 
-    harmonyDescription:
-      "El carbón profundo domina el mandil y crea una base sobria y contundente. Sobre esta estructura aparecen acentos en rojo intenso en los tirantes, la cintura y los detalles de identidad, mientras que los herrajes metálicos plateados aportan un contraste técnico y limpio.",
+    backgroundColor: "#111D2D",
 
-    whyChooseDescription:
-      "Una combinación diseñada para proyectar presencia y reconocimiento de marca. El cuerpo oscuro mantiene una apariencia profesional y uniforme, mientras que los acentos rojos rompen el monocromo y convierten el mandil en una pieza visualmente distintiva. Ideal para restaurantes, cafeterías, floristerías, tiendas especializadas y equipos que buscan una imagen de marca fuerte.",
+    backgroundSecondaryColor: "#1D3048",
 
-    textileSpecs:
-      "Textil negro de apariencia estructurada con acabados resistentes, herrajes metálicos plateados y aplicaciones textiles en rojo de alto contraste.",
+    backgroundAccentColor: "#40566F",
 
-    details: [
+    backgroundLightColor: "#E5E4DF",
+
+    backgroundPedestalColor: "#AEB1B0",
+
+    backgroundLineColor: "#788796",
+
+    modelApronImage: "/images/custom/Navy Grey.png",
+
+    swatches: [
       {
-        title: "Pase de Cocina",
-        image: "/images/custom/carbon-detalle-1.jpg",
+        name: "Azul Marino",
+        hex: "#172D4D",
+        role: "Base y paneles del mandil",
       },
       {
-        title: "Bolsillo Termómetro",
-        image: "/images/custom/carbon-detalle-2.jpg",
-      },
-      {
-        title: "Herraje Metálico",
-        image: "/images/custom/carbon-detalle-3.jpg",
-      },
-      {
-        title: "Doble Refuerzo",
-        image: "/images/custom/carbon-detalle-4.jpg",
+        name: "Gris Claro",
+        hex: "#D8D8D5",
+        role: "Paneles y bolsillos",
       },
     ],
+
+    harmonyDescription:
+      "El azul marino aporta profundidad, elegancia y una presencia profesional, mientras que el gris claro introduce luminosidad y equilibrio visual. La división vertical de ambos tonos define la silueta del mandil y crea una composición limpia, sobria y contemporánea.",
+
+    whyChooseDescription:
+      "Diseñado para profesionales que buscan una imagen refinada y versátil sin renunciar a la funcionalidad. El contraste entre azul marino y gris claro aporta una estética moderna y profesional, mientras que sus múltiples bolsillos delanteros permiten mantener herramientas y accesorios esenciales siempre al alcance durante la jornada.",
+
+    textileSpecs:
+      "Construcción completamente textil, con cuerpo, tirantes, cintura y bolsillos confeccionados en tejido resistente. Incorpora herrajes metálicos en los puntos de ajuste y sujeción para aportar funcionalidad, durabilidad y un acabado contemporáneo.",
+
+    bottomNote:
+      "Mandil de estética profesional · Azul marino & gris · Construcción textil · Bolsillos funcionales · Herrajes metálicos",
   },
 ];
